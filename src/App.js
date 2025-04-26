@@ -7,7 +7,6 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
-import { UserProvider } from './context/UserContext';
 import Users from './pages/Users';
 
 function App() {
