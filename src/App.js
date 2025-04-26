@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
+import { SocketProvider } from './context/SocketContext';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Chat from './pages/Chat';
+import Profile from './pages/Profile';
+import Navbar from './components/Navbar';
+import { UserProvider } from './context/UserContext';
+import Users from './pages/Users';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <SocketProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/users" element={<Users />} />
+          </Routes>
+        </Router>
+      </SocketProvider>
+    </UserProvider>
   );
 }
 
